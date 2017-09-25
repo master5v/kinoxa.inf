@@ -1,7 +1,12 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Master
- * Date: 25.09.2017
- * Time: 19:32
- */
+
+// запрет прямого обращения
+define('ISHOP', TRUE);
+
+// подключение файла конфигурации
+require_once 'config.php';
+
+// подключение контроллера
+require_once CONTROLLER;
+
+?>
