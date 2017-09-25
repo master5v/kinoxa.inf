@@ -1,0 +1,304 @@
+@charset "utf-8";
+*{
+    margin: 0;    /* стили применяемые ко всему документу*/
+    padding: 0;
+}
+html,
+body{              /* установка шрифта, который будет использоваться на сайте*/
+    font-family: "Segoe UI", sans-serif;
+    font-size: 12pt;
+    font-weight: normal;
+    color: #150637
+}
+body{
+    background-image: url("../images/bg-lightviolet.jpg"); /*установка фонового рисунка*/
+    min-width: 320px;
+    position: relative;
+}
+
+/*стили шапки сайта*/
+header{
+  padding: 0;
+  margin: 0;
+
+}
+.navbar.navbar-default{
+  margin-bottom: 0;
+  border: none;
+}
+.top-menu .navbar{
+  background: transparent;
+}
+.top-menu .navbar-default .navbar-nav > li > a{
+  font-size: 14px;
+  font-weight: 600;
+  color: #150637
+}
+.top-menu .navbar-default .navbar-nav > li > a:hover{
+    text-decoration: underline;
+}
+.form-control{
+  font-size: 14px;
+}
+
+/*=========MAIN MENU=============*/
+.main-menu{
+  position: absolute;
+  top: 30px;
+  width: 100%;
+  z-index: 7;
+}
+.main-menu .navbar-inverse{
+  background: transparent;
+  border: none;
+}
+.main-menu .navbar-inverse .navbar-nav > li > a{
+  color: #fff;
+  font-size: 16px;
+}
+.menu-carousel .main-menu .navbar-brand{
+  padding: 0;
+  margin-left: 30px;
+}
+.main-menu .navbar-brand img{
+  float: left;
+  position: relative;
+  top: -25px;
+}
+.main-menu .navbar-brand span{
+  display: inline-block;
+  padding: 15px;
+  color: #fff;
+}
+.main-menu-bg{
+  background: #150637;
+  border-radius: 4px;
+}
+.main-menu .navbar-inverse .navbar-nav > .active > a,
+.main-menu .navbar-inverse .navbar-nav > .active > a:focus,
+.main-menu .navbar-inverse .navbar-nav > .active > a:hover,
+.main-menu .navbar-inverse .navbar-nav a:focus,
+.main-menu .navbar-inverse .navbar-nav a:hover{
+  background: #333366;
+}
+
+
+
+.menu-carousel .item{
+    min-height: 500px;
+}
+
+.menu-carousel .bg-carousel{
+    background-size: cover;
+    background-position: center center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.carousel.fade{
+    opacity: 1;
+}
+.carousel.fade .item.active{
+    opacity: 1;
+    position: relative;
+    z-index: 2;
+}
+.carousel.fade .item{
+    opacity: 0;
+    transition: opacity .5s;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+}
+.menu-carousel .carousel-caption{
+    text-align: center;
+}
+.menu-carousel .carousel-caption h1{
+    font-size: 48px;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+.menu-carousel .carousel-caption h3{
+    font-size: 30px;
+    margin-bottom: 40px;
+
+}
+.menu-carousel .carousel-caption .btn-red{
+    padding: 15px 15px;
+    color: #fff;
+    font-size: 24px;
+}
+.menu-carousel .carousel-control{
+    z-index: 5;
+}
+.carousel-indicators-wrap{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+.carousel-indicators-wrap .carousel-indicators{
+  position: relative;
+  left: 0;
+  bottom: -5px;
+  width: auto;
+  display: inline-block;
+  margin-left: 0;
+}
+.carousel-indicators-wrap .carousel-indicators li{
+  border: 1px solid #333366;
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  margin: 0 3px;
+}
+.carousel-indicators-wrap .carousel-indicators li.active{
+  background: #333366;
+}
+.btn-host{
+    background: none;
+    border: 2px solid #fff;
+    padding: 15px 25px;
+    color: #fff;
+    font-size: 24px;
+}
+.btn-f{
+    background: #150637;
+    color: #fff;
+    padding: 15px 25px;
+    font-size: 24px
+}
+.btn-f:hover{
+    background: #333366;
+    color: #fff;
+}
+/*=============CONTENT===========================*/
+.content{
+    text-align: center;
+}
+.row-channel{
+    margin: 25px 0;
+}
+.tv{
+    margin: 20px 0 0;
+    text-align: center;
+
+}
+.channel{
+    height: 120px;
+    width: 120px;
+    display: inline-block;
+    position: relative;
+}
+.channel a>img{
+    border: 2px solid #ddd;
+    border-radius: 5px;
+}
+.channel a>img:hover{
+    border: 2px solid rgba(54, 54, 114, .3)
+
+}
+.logo-channel{
+    background: rgba(54, 54, 114, .3);
+    height: 130px;
+    /*height: 120px;
+    width: 100%;*/
+}
+.status{
+    background: #00ABF0;
+    font-weight: 600;
+    position: absolute;
+    bottom: -12px;
+    left: -12px;
+    width: 35px;
+    height: 30px;
+    border: 2px solid rgba(54, 54, 114, 0.5);;
+    border-radius: 2px 55% 2px 55% ;
+}
+.free{
+    background: #79D117;
+    position: absolute;
+    color: #fff;
+    bottom: -12px;
+    right: -12px;
+    width: 35px;
+    height: 30px;
+    border: 2px solid rgba(54, 54, 114, 0.5);
+    border-radius: 55% 2px 55% 2px;
+}
+.buy{
+    background: #FA1516;
+    color: #fff;
+    position: absolute;
+    bottom: -12px;
+    right: -12px;
+    width: 35px;
+    height: 30px;
+    border: 2px solid rgba(54, 54, 114, 0.5);
+    border-radius: 55% 2px 55% 2px;
+}
+/*==========SIDEBAR===================*/
+.sidebar{
+    text-align: center;
+}
+.sidebar-menu {
+    text-align: left;
+    background: #150637;
+    margin-top: 30px;
+    padding: 15px 0;
+}
+.sidebar-menu ul{
+    list-style: none;
+    text-transform: uppercase;
+}
+.sidebar-menu li{
+
+    border-bottom: 1px solid #fff;
+}
+.sidebar-menu li:first-child{
+    border-bottom: 3px double #fff;
+}
+.sidebar-menu li:last-child{
+    border-bottom: none;
+}
+.sidebar-menu li a {
+    padding: 5px 20px;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+}
+.sidebar-menu li a:hover{
+    background: #333366;
+}
+/*============FOOTER=====================*/
+footer{
+    margin-top: 20px;
+    position: relative;
+    bottom: 0;
+}
+.footer-content{
+    background: #150637;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    padding: 15px 0;
+    border-radius: 3px 3px 0 0;
+    min-height: 60px;
+}
+.footer-content p{
+    margin: 0;
+    padding-bottom: 20px;
+}
+.footer-content span{
+     font-size: 12px;
+     padding: 5px;
+ }
+.footer-content span a{
+    color: #fff;
+    text-transform: uppercase;
+}
