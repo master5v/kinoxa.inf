@@ -79,7 +79,7 @@
     function getList($id)
     {
         $query = "SELECT *  FROM `b_lists`  WHERE  `id` = $id  ";
-        $res = mysql_query($query); //AND `activ` = 1WHERE `vis` = 1 ORDER BY RAND() LIMIT 1
+        $res = mysql_query($query);
         $udp = array();
         while ($row = mysql_fetch_assoc($res)) {
             $udp[] = $row;
@@ -97,9 +97,6 @@
 
         $q = "UPDATE `b_kinoser` SET `list`=$id,`description`='$description',`logo`='$logo',`date`=NOW() WHERE `title` = '$title'"; //,`tipe`='$tipe' LIKE
         $ss = mysql_query($q) || die(mysql_error());
-
-    //    UPDATE `b_kinoser` SET `description` ='$description' , `list` = $id,`logo` = '$logo', `tipe` = `$tipe` , `date` = `$date`
-    //    `list`, `title`, `season`, `parent`, `description`, `url`, `new`, `logo`, `qualiti`, `date`, `tipe`
         return $ss;
     }
 
@@ -129,12 +126,12 @@
             do {
 
                 $txt .= '<channel>
-    <title><![CDATA[' . $row[username] . ' ' . $row[date] . ']]></title>
-    <logo_30x30><![CDATA[' . PATH . 'userfiles/images/menu/mailNE.png]]></logo_30x30>
-    <description><![CDATA[' . $row[text] . ']]></description>
-    <search_on>search</search_on>
-    <playlist_url><![CDATA[' . PATHS . '?p=sendotv&id=' . $row[id] . ']]></playlist_url>
-    </channel>';
+        <title><![CDATA[' . $row[username] . ' ' . $row[date] . ']]></title>
+        <logo_30x30><![CDATA[' . PATH . 'userfiles/images/menu/mailNE.png]]></logo_30x30>
+        <description><![CDATA[' . $row[text] . ']]></description>
+        <search_on>search</search_on>
+        <playlist_url><![CDATA[' . PATHS . '?p=sendotv&id=' . $row[id] . ']]></playlist_url>
+        </channel>';
 
             } while ($row = mysql_fetch_assoc($result));
         }
@@ -157,7 +154,7 @@
         } else {
 
             mysql_query("INSERT INTO `b_mail`(`user`,`username`,`parent`, `text`, `tipe`,  `date`)
-                                    VALUES ( '$box_mac','$username',$id,'$name','sendadmin', NOW())");
+                                        VALUES ( '$box_mac','$username',$id,'$name','sendadmin', NOW())");
 
             mysql_query("UPDATE `b_mail` SET `read` = 1, `otvet` = 1 WHERE `id` = $id");
             $_SESSION['mail'] = "Сообщение отправлено";
@@ -166,10 +163,10 @@
 
         $txt = $name;
         $ovet = '<channel>
-    <title><![CDATA[' . $_SESSION[mail] . ']]></title>
-    <logo_30x30><![CDATA[]]></logo_30x30>
-    <description><![CDATA[' . $txt . ']]></description>
-    </channel>';
+        <title><![CDATA[' . $_SESSION[mail] . ']]></title>
+        <logo_30x30><![CDATA[]]></logo_30x30>
+        <description><![CDATA[' . $txt . ']]></description>
+        </channel>';
 
         unset($_SESSION[mail]);
         return $ovet;
@@ -187,7 +184,7 @@
         }//
         else {
             $q = "SELECT * FROM `b_mail` WHERE `parent` = 0 AND `user` = '$box_mac' AND `tipe` = '$tipe' ORDER BY `id` DESC LIMIT 10";
-            if ($box_mac == '12cc8f3b45033d42') $q = "SELECT * FROM `b_mail` WHERE `parent` = 0  AND `tipe` = '$tipe' ORDER BY `date` DESC LIMIT 10";//AND `read` = 0
+            if ($box_mac == '12cc8f3b45033d42') $q = "SELECT * FROM `b_mail` WHERE `parent` = 0  AND `tipe` = '$tipe' ORDER BY `date` DESC LIMIT 10";
         }
 
 
@@ -208,7 +205,7 @@
                     $admino = "<span style='margin-left:36px; margin-top: 3px;'><img src='" . PATH . "userfiles/images/menu/ArrowLeft.png'  width=\"30\"/><b style=' color:red;'>ADMIN: </b>" . $row2[text] . "</span>";
                 } else $admino = "";
                 $txt .= "<span style='margin-left:5px;'> " . $logos . " <b>$row[username]: </b><span style='margin-left:5%;'>$row[text]</span></span>		
-                <br>$admino <hr>";
+                    <br>$admino <hr>";
             } while ($row = mysql_fetch_assoc($result));
         }
         return $txt;
@@ -229,19 +226,18 @@
         } else {
 
             mysql_query("INSERT INTO `b_mail`(`user`,`username`, `text`, `tipe`,  `date`)
-                                                    VALUES ( '$box_mac','$username','$name','$tipe', NOW())");
+                                                        VALUES ( '$box_mac','$username','$name','$tipe', NOW())");
             $_SESSION['mail'] = "Сообщение отправлено";
         }
-        //header("Content-type: text/xml");
 
         $txt = selmail($box_mac, $tipe);
 
 
         $ovet = '<channel>
-    <title><![CDATA[' . $_SESSION[mail] . ']]></title>
-    <logo_30x30><![CDATA[]]></logo_30x30>
-    <description><![CDATA[' . $txt . ']]></description>
-    </channel>';
+        <title><![CDATA[' . $_SESSION[mail] . ']]></title>
+        <logo_30x30><![CDATA[]]></logo_30x30>
+        <description><![CDATA[' . $txt . ']]></description>
+        </channel>';
 
         unset($_SESSION[mail]);
         return $ovet;
@@ -254,7 +250,7 @@
     function getfilms($i)
     {
         $query = "SELECT * FROM `b_kinoser` WHERE `list` =$i ";
-        $res = mysql_query($query); // `title` LIKE '$title%'WHERE `vis` = 1 ORDER BY RAND() LIMIT 1
+        $res = mysql_query($query);
         $udp = array();
         while ($row = mysql_fetch_assoc($res)) {
             $udp[] = $row;
@@ -320,4 +316,5 @@
         }
         return $udp;
     }
+
     //=====================

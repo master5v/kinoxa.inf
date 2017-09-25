@@ -81,19 +81,19 @@
         $page1right = ''; // первая страница справа
 
         if ($page > 1) {
-            $back = "<a href='{$uri}page=" . ($page - 1) . "' class='previouspostslink'>◄</a>";//<a class='nav_link' href='{$uri}page=" .($page-1). "'>&lt;</a>
+            $back = "<a href='{$uri}page=" . ($page - 1) . "' class='previouspostslink'>◄</a>";
         }
         if ($page < $pages_count) {
-            $forward = "<a href='{$uri}page=" . ($page + 1) . "' class='nextpostslink'>Следующая</a>";//<a class='nav_link' href=''>&gt;</a>
+            $forward = "<a href='{$uri}page=" . ($page + 1) . "' class='nextpostslink'>Следующая</a>";
         }
         if ($page > 3) {
-            $startpage = "<a href='{$uri}page=1' class='first'>◊</a>";//<a class='nav_link' href=''>&laquo;</a>
+            $startpage = "<a href='{$uri}page=1' class='first'>◊</a>";
         }
         if ($page < ($pages_count - 2)) {
             $endpage = "<a  href='{$uri}page={$pages_count}' class='last'>◊</a>";
         }
         if ($page - 2 > 0) {
-            $page2left = "<a href='{$uri}page=" . ($page - 2) . "' class='page smaller'>" . ($page - 2) . "</a>";//<a class='nav_link' href=''>" .($page-2). "</a>
+            $page2left = "<a href='{$uri}page=" . ($page - 2) . "' class='page smaller'>" . ($page - 2) . "</a>";
         }
         if ($page - 1 > 0) {
             $page1left = "<a  href='{$uri}page=" . ($page - 1) . "'>" . ($page - 1) . "</a>";
@@ -105,29 +105,26 @@
             $page1right = "<a class='page larger' href='{$uri}page=" . ($page + 1) . "'>" . ($page + 1) . "</a>";
         }
 
-        // формируем вывод навигации
-        //echo '<div class="pagination">' .$startpage.$back.$page2left.$page1left.'<a class="nav_active">'.$page.'</a>'.$page1right.$page2right.$forward.$endpage. '</div>';
 
         echo '
+            
+            <div id="page_navi"><div class="wp-pagenavi">
+            ' . $startpage . $back . $page2left . $page1left . '
         
-        <div id="page_navi"><div class="wp-pagenavi">
-        ' . $startpage . $back . $page2left . $page1left . '
-    
-    
-    <span class="current">' . $page . '</span>
-    ' . $page1right . $page2right . $forward . $endpage . '
-    
-    
-    
-    
-    </div></div>
+        
+        <span class="current">' . $page . '</span>
+        ' . $page1right . $page2right . $forward . $endpage . '
         
         
         
         
-     ';
+        </div></div>
+            
+            
+            
+            
+         ';
     }
-
 
 
     /*===Постраничная навигация=== */
